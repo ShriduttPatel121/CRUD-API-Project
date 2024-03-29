@@ -1,6 +1,5 @@
 import { Controller, Post } from '@nestjs/common';
 import { AuthService } from './user.service';
-
 @Controller({
   path: 'auth',
 })
