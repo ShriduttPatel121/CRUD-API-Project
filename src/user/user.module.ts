@@ -4,7 +4,6 @@ import { AuthService } from './user.service';
 import MikroORMMoDule from 'src/MikroORM/mikro-orm.module';
 
 @Module({
-  imports: [MikroORMMoDule],
   controllers: [AuthController],
   providers: [AuthService],
 })

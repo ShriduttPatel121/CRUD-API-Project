@@ -1,4 +1,4 @@
-import { Entity, PrimaryKey, Property } from '@mikro-orm/core';
+import { Entity, PrimaryKey, Property,  } from '@mikro-orm/core';
 
 @Entity()
 export class User {
@@ -7,6 +7,11 @@ export class User {
 
   @Property()
   name!: string;
+
+  @Property({ onCreate(entity, em) {
+    
+  }, })
+  password!: string;
 
   // Other properties and relationships can be added here
 }

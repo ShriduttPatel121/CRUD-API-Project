@@ -14,12 +14,12 @@ export class AuthService {
     return 'I am at sing in';
   }
 
-  signup() {
+  async signup() {
     this.authorRepository.create({
       name: 'Narendra'
     });
-    this.authorRepository.insert({ name: 'Shridutt' })
-    this.em.flush();
+    await this.authorRepository.insert({ name: 'Shridutt' })
+    await this.em.flush();
     return 'I am at sing up';
   }
 }
