@@ -22,7 +22,8 @@ const config: Options = {
     extensions: [Migrator],
     logger: logger.log.bind(logger),
     metadataProvider: TsMorphMetadataProvider,
-    loadStrategy: LoadStrategy.JOINED
+    loadStrategy: LoadStrategy.JOINED,
+    // disableTransactions: true
 }
 
 export default config;
