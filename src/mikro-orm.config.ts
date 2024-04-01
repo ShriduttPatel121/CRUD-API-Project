@@ -1,5 +1,5 @@
 import { Logger } from "@nestjs/common"
-import { type Options, PostgreSqlDriver } from "@mikro-orm/postgresql"
+import { LoadStrategy, type Options, PostgreSqlDriver } from "@mikro-orm/postgresql"
 import { TsMorphMetadataProvider } from "@mikro-orm/reflection"
 import { SqlHighlighter } from '@mikro-orm/sql-highlighter';
 import path from "path";
@@ -21,7 +21,8 @@ const config: Options = {
     driver: PostgreSqlDriver,
     extensions: [Migrator],
     logger: logger.log.bind(logger),
-    metadataProvider: TsMorphMetadataProvider
+    metadataProvider: TsMorphMetadataProvider,
+    loadStrategy: LoadStrategy.JOINED
 }
 
 export default config;
