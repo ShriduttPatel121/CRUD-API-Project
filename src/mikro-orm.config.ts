@@ -1,5 +1,6 @@
 import { Logger } from "@nestjs/common"
 import { type Options, PostgreSqlDriver } from "@mikro-orm/postgresql"
+import { TsMorphMetadataProvider } from "@mikro-orm/reflection"
 import { SqlHighlighter } from '@mikro-orm/sql-highlighter';
 import path from "path";
 import Entities from "./db/entities";
@@ -19,7 +20,8 @@ const config: Options = {
     debug: true, // for prod, need to disable it
     driver: PostgreSqlDriver,
     extensions: [Migrator],
-    logger: logger.log.bind(logger)
+    logger: logger.log.bind(logger),
+    metadataProvider: TsMorphMetadataProvider
 }
 
 export default config;

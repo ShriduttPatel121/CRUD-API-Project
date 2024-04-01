@@ -13,7 +13,7 @@ export class AuthController {
   signup(@Req() req: Request) {
 
     console.log(req.body);
-    return req.body;
+    // return req.body;
     return this.authService.signup();
   }
 
