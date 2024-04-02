@@ -3,11 +3,11 @@ import { hash, verify } from "argon2"
 import { BaseEntity } from './entity';
 import { Bookmark } from './Bookmark';
 
-@Entity()
+@Entity({ tableName: 'users' })
 export class User extends BaseEntity {
 
-  @Property()
-  name: string;
+  @Property({ unique: true })
+  username: string;
 
   @Property({ hidden: true, lazy: true })
   password: string;

@@ -172,8 +172,8 @@
           "length": 6,
           "mappedType": "datetime"
         },
-        "name": {
-          "name": "name",
+        "username": {
+          "name": "username",
           "type": "varchar(255)",
           "unsigned": false,
           "autoincrement": false,
@@ -191,11 +191,21 @@
           "mappedType": "string"
         }
       },
-      "name": "user",
+      "name": "users",
       "schema": "public",
       "indexes": [
         {
-          "keyName": "user_pkey",
+          "columnNames": [
+            "username"
+          ],
+          "composite": false,
+          "keyName": "users_username_unique",
+          "constraint": true,
+          "primary": false,
+          "unique": true
+        },
+        {
+          "keyName": "users_pkey",
           "columnNames": [
             "id"
           ],
@@ -268,11 +278,11 @@
           "mappedType": "integer"
         }
       },
-      "name": "bookmark",
+      "name": "bookmarks",
       "schema": "public",
       "indexes": [
         {
-          "keyName": "bookmark_pkey",
+          "keyName": "bookmarks_pkey",
           "columnNames": [
             "id"
           ],
@@ -284,16 +294,16 @@
       ],
       "checks": [],
       "foreignKeys": {
-        "bookmark_user_id_foreign": {
-          "constraintName": "bookmark_user_id_foreign",
+        "bookmarks_user_id_foreign": {
+          "constraintName": "bookmarks_user_id_foreign",
           "columnNames": [
             "user_id"
           ],
-          "localTableName": "public.bookmark",
+          "localTableName": "public.bookmarks",
           "referencedColumnNames": [
             "id"
           ],
-          "referencedTableName": "public.user",
+          "referencedTableName": "public.users",
           "updateRule": "cascade"
         }
       },

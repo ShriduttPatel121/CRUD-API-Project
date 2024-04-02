@@ -2,7 +2,7 @@ import { BeforeCreate, BeforeUpdate, Entity, EventArgs, ManyToOne, OneToMany, Pr
 import { BaseEntity } from './entity';
 import { User } from './user';
 
-@Entity()
+@Entity({ tableName: 'bookmarks' })
 export class Bookmark extends BaseEntity {
 
   @Property()
