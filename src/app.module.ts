@@ -6,15 +6,26 @@ import { UserModule } from './user/user.module';
 import { BookmarkModule } from './bookmark/bookmark.module';
 import MikroORMMoDule from './MikroORM/mikro-orm.module';
 import { ConfigModule } from "@nestjs/config"
+import { JwtModule } from "@nestjs/jwt"
+import { JwtConfigModule } from './Jwt/Jwt.module';
+import { APP_GUARD } from '@nestjs/core';
+import { AuthGuard } from './Jwt/auth.guard';
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
+    JwtConfigModule,
     MikroORMMoDule,
     AuthModule, 
     UserModule, 
     BookmarkModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [
+    AppService,
+    {
+      provide: APP_GUARD,
+      useClass: AuthGuard,
+    }
+  ],
 })
 export class AppModule {}
