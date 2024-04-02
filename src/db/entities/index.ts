@@ -11,5 +11,6 @@ import {
 } from "./Comment";
 
 import { User } from "./user"
+import { Bookmark } from "./Bookmark";
 
-export default [Post, Author, Comment, User];
+export default [Post, Author, Comment, User, Bookmark];

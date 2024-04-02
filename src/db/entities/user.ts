@@ -1,17 +1,32 @@
-import { Entity, PrimaryKey, Property,  } from '@mikro-orm/core';
+import { BeforeCreate, BeforeUpdate, Collection, Entity, EventArgs, ManyToOne, OneToMany, PrimaryKey, Property,  } from '@mikro-orm/core';
+import { hash, verify } from "argon2"
+import { BaseEntity } from './entity';
+import { Bookmark } from './Bookmark';
 
-@Entity()
-export class User {
-  @PrimaryKey({autoincrement: true})
-  id!: number;
+@Entity({ tableName: 'users' })
+export class User extends BaseEntity {
 
-  @Property()
-  name!: string;
+  @Property({ unique: true })
+  username: string;
 
-  @Property({ onCreate(entity, em) {
-    
-  }, })
-  password!: string;
+  @Property({ hidden: true, lazy: true })
+  password: string;
 
-  // Other properties and relationships can be added here
+  @OneToMany({ mappedBy: 'user' })
+  bookmarks = new Collection<Bookmark>(this);
+  
+  @BeforeCreate()
+  @BeforeUpdate()
+  async hashPassword(args: EventArgs<User>) {
+    // hash only if the password was changed
+    const password = args.changeSet?.payload.password;
+
+    if (password) {
+      this.password = await hash(password);
+    }
+  }
+
+  async verifyPassword(password: string) {
+    return verify(this.password, password);
+  }
 }
