@@ -4,13 +4,14 @@ import { Injectable } from '@nestjs/common';
 import { User } from 'src/db/entities/user';
 import { AuthDto } from './dto';
 import { InvalidPassword } from './types';
+import { ConfigService } from '@nestjs/config';
 
 @Injectable()
 export class AuthService {
   
   constructor(@InjectRepository(User) private readonly userRepository: EntityRepository<User>,
-  private readonly em: EntityManager
-
+  private readonly em: EntityManager,
+  private configService: ConfigService
   ) { }
 
   

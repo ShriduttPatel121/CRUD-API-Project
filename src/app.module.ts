@@ -5,8 +5,10 @@ import { AuthModule } from './auth/auth';
 import { UserModule } from './user/user.module';
 import { BookmarkModule } from './bookmark/bookmark.module';
 import MikroORMMoDule from './MikroORM/mikro-orm.module';
+import { ConfigModule } from "@nestjs/config"
 @Module({
   imports: [
+    ConfigModule.forRoot({ isGlobal: true }),
     MikroORMMoDule,
     AuthModule, 
     UserModule, 
