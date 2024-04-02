@@ -23,13 +23,22 @@
           "primary": false,
           "nullable": false,
           "mappedType": "string"
+        },
+        "age": {
+          "name": "age",
+          "type": "int",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "integer"
         }
       },
-      "name": "author",
+      "name": "authors",
       "schema": "public",
       "indexes": [
         {
-          "keyName": "author_pkey",
+          "keyName": "authors_pkey",
           "columnNames": [
             "id"
           ],

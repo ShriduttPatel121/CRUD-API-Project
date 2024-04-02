@@ -1,4 +1,4 @@
-import { BeforeCreate, BeforeUpdate, Collection, Entity, EventArgs, ManyToOne, OneToMany, PrimaryKey, Property,  } from '@mikro-orm/core';
+import { BeforeCreate, BeforeUpdate, Collection, Entity, EventArgs, ManyToOne, OneToMany, PrimaryKey, Property  } from '@mikro-orm/core';
 import { hash, verify } from "argon2"
 import { BaseEntity } from './entity';
 import { Bookmark } from './Bookmark';

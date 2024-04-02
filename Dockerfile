@@ -18,5 +18,3 @@ VOLUME ["/var/lib/postgresql/data"]
 
 # Start PostgreSQL service when the container launches
 CMD ["postgres"]
-
-

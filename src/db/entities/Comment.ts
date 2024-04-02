@@ -1,6 +1,4 @@
 import { Entity, ManyToOne, PrimaryKey, Property } from '@mikro-orm/core';
-import { Post } from './Post';
-import { Author } from './Author';
 
 @Entity()
 export class Comment {

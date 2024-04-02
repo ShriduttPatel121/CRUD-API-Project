@@ -1,16 +1,10 @@
-import {
-    Post
-} from "./Post"
+import { Post } from './Post';
 
-import {
-    Author
-} from "./Author";
+import { Author } from './Author';
 
-import {
-    Comment
-} from "./Comment";
+import { User } from './user';
+import { Bookmark } from './Bookmark';
 
-import { User } from "./user"
-import { Bookmark } from "./Bookmark";
+import { Comment } from './Comment';
 
-export default [Post, Author, Comment, User, Bookmark];
+export default [Post, Author, User, Bookmark, Comment];
